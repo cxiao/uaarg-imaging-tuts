@@ -19,8 +19,7 @@ def get_image_data(image_ids, info_dir):
     UTM_EAST_FIELD = "utm_east"
     UTM_NORTH_FIELD = "utm_north"
     
-    # UTM zone info 
-    # TODO: pass in as argument instead?
+    # UTM zone info
     UTM_ZONE = 19
    
     # Data structures for storage of image data 
@@ -28,12 +27,12 @@ def get_image_data(image_ids, info_dir):
     position = {}
     coordinates = {}
     
-    for i_id in image_ids:
+    for i_id in image_ids: # A loop that goes through the id of every image we want to process
        info_file_location = ("%s/%s.txt" %(info_dir, i_id))
        print("\n== Image ID: %s ==" %i_id)
 
        # Get plane orientation information
-       pitch = get_info_field(info_file_location, PITCH_FIELD)
+       pitch = get_info_field(info_file_location, PITCH_FIELD) # get_info_field is actually another function that I wrote the code for, you can find its code later in this file.
        roll = get_info_field(info_file_location, ROLL_FIELD)
        yaw = get_info_field(info_file_location, YAW_FIELD)
        orientation[i_id] = {"pitch":pitch, "roll":roll, "yaw":yaw}
